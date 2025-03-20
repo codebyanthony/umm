@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        /* Mobile-friendly design */
+        body {
+            background-color: #ffccd5; /* Soft pink background */
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            color: #d63384;
+            padding: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        /* Message container with flower border */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 5px solid #ff69b4;
+        }
+        /* Decorative flowers */
+        .container::before, .container::after {
+            content: "🌸🌷🌼";
+            font-size: 25px;
+            position: absolute;
+        }
+        .container::before {
+            top: -20px;
+            left: 10px;
+        }
+        .container::after {
+            bottom: -20px;
+            right: 10px;
+        }
+        h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+        p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        /* Forgive Me button */
+        button {
+            background: #ff69b4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        button:hover {
+            background: #ff1493;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        /* Click effect */
+        button::after {
+            content: "";
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.5);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            border-radius: 50%;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        button:active::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0);
+        }
+        /* Floating hearts animation */
+        .heart {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+        /* Image of flowers */
+        .flower-image {
+            width: 100%;
+            max-width: 250px;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Cute teddy bear */
+        .teddy-bear {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: -40px;
+            right: -30px;
+        }
+        /* Extra stickers */
+        .sticker {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+        }
+        .sticker1 { top: -50px; left: -50px; }
+        .sticker2 { bottom: -50px; right: -50px; }
+        /* Responsive design */
+        @media (max-width: 600px) {
+            h1 { font-size: 30px; }
+            p { font-size: 16px; }
+            button { font-size: 18px; padding: 10px 20px; }
+            .heart { width: 25px; height: 25px; }
+            .teddy-bear { width: 80px; height: 80px; top: -30px; right: -20px; }
+            .sticker { width: 50px; height: 50px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+              <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYThnOTdpM2R3c3F3NGNqN2F5ZGFlcmp4d2tqMjFiYzBnYjlwOXF1OCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/bKyQb654tHDq72daXJ/giphy.gif" alt="Cute GIF">
+        <img class="sticker sticker1" src="https://cdn-icons-png.flaticon.com/512/744/744976.png" alt="Heart Sticker">
+        <img class="sticker sticker2" src="https://cdn-icons-png.flaticon.com/512/2593/2593401.png" alt="Love Sticker">
+        <h1>I'm Sorry</h1>
+        <p>I'm sorry for what I've done and for making you overthink about some things.</p>
+        <img class="flower-image" src="https://source.unsplash.com/400x400/?bouquet,flowers" alt="Flowers">
+        <button onclick="showLoveMessage()">Forgive Me?</button>
+    </div>
+
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) { // Increased number of hearts
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                document.body.appendChild(heart);
+
+                setTimeout(() => { heart.remove(); }, 6000);
+            }
+        }
+        setInterval(createHearts, 1000);
+
+        function showLoveMessage() {
+            alert("I love you and I miss you so much ❤️");
+        }
+    </script>
+</body>
+</html>
